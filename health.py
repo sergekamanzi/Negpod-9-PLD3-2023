@@ -1,8 +1,9 @@
-mport tkinter as tk
-from tkinter import messagebox
+    # Check if all fields are filled
+    if not name or not email or not password or not confirm_password:
+        messagebox.showerror("Error", "Please fill in all fields.")
+        return
 
-def register():
-    name = name_entry.get()
-    email = email_entry.get()
-    password = password_entry.get()
-    confirm_password = confirm_password_entry.get()
+    # Check if passwords match
+    if password != confirm_password:
+        messagebox.showerror("Error", "Passwords do not match.")
+        return
