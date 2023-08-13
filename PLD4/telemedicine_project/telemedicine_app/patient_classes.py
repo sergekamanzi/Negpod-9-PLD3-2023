@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 
 class Patient:
-    def __init__(self, name, id_card, phone_number, email, age):
+    def __init__(self, name, id_card, phone_number):
         self.name = name
         self.id_card = id_card
         self.phone_number = phone_number
-        self.email = email
-        self.age = age
         self.role = "patient"
         self.appointments = []
 
