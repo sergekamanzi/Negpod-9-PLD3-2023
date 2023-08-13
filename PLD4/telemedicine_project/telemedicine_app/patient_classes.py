@@ -9,7 +9,7 @@ class Patient:
         self.age = age
         self.role = "patient"
 
-    def add_appointment(self, appointment):
+ def add_appointment(self, appointment):
         self.appointments.append(appointment)
 
     def display_appointments(self):
