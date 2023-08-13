@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 class Patient:
-    def __init__(self, name, id_card):
+    def __init__(self, name):
         self.name = name
-        self.id_card = id_card
         self.role = "patient"
         self.appointments = []
 
