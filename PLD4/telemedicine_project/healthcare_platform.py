@@ -39,7 +39,7 @@ class TelemedicinePlatform:
             elif choice == '2':
                 self.register_professional()
             elif choice == '3':
-                self.login()
+                self.login_as_patient()
             elif choice == '4':
                 if self.current_user:
                     self.book_appointment()
@@ -65,7 +65,7 @@ class TelemedicinePlatform:
         print("---- Telemedicine Platform Menu ----")
         print("1. Register as a Patient")
         print("2. Register as a Healthcare Professional")
-        print("3. Login")
+        print("3. Login as a Patient")
         print("4. Book an Appointment")
         print("5. View Registered Patients")
         print("6. View Appointments")
@@ -113,14 +113,14 @@ class TelemedicinePlatform:
         self.professionals.append(professional)
         print("Healthcare professional registered successfully.")
 
-    def login(self):
+    def login_as_patient(self):
         phone_number = input("Phone Number: ")
-        for user in self.patients + self.professionals:
-            if user["phone_number"] == phone_number:
-                self.current_user = user
-                print("Logged in as {}.".format(user['name']))
+        for patient in self.patients:
+            if patient["phone_number"] == phone_number:
+                self.current_user = patient
+                print("Logged in as {} (Patient).".format(patient['name']))
                 return
-        print("User not found.")
+        print("Patient not found.")
 
     def book_appointment(self):
         print("Available Healthcare Professionals:")
@@ -147,7 +147,7 @@ class TelemedicinePlatform:
                 self.appointments.append(appointment)
                 print("Appointment booked successfully.")
             else:
-                print("Doctor is not available between {}.".format(professional['working_hours']))
+                print("Try again the Doctor is available between {}.".format(professional['working_hours']))
         else:
             print("Invalid choice.")
 
